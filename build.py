@@ -6,30 +6,42 @@ urls = [
     "https://docs.google.com/presentation/d/1I_K1Z4IitdsmmM-YUOkxCr2n5Zu82ZZRle1lPwwKnbE/edit?usp=drive_link",
 ]
 
-pres_template = """<div class="presentation" onclick="openPresentation('{name}')">
+names = [
+    "Литературный проект ПЭКАЛЭ И ТЫНДАЛЭ",
+    "Литературный проект КОШЕЛЁК С ДВУМЯ ДЕНЕЖКАМИ",
+    "Литературный проект ИСТОРИЯ МУРАВЬЯ. ",
+    "Литературный проект ГАДКИЙ УТЁНОК.",
+    "Литературный проект ВОРИШКА",
+]
+
+pres_template = """<div class="presentation" onclick="openPresentation('{link}')">
     <img
     src="{image}"
-    alt="Presentation {num}">
+    alt="{name}">
 </div>"""
 container = """<div class="container">
 {pres}
 </div>"""
 
 
-def get_name(link):
-    return link.split("?")[0].split("/")[-2]
+def get_link(full_link):
+    return full_link.split("?")[0].split("/")[-2]
 
 
-def get_image(link):
-    return link.split("/edit")[0] + "/export/png?id=" + get_name(link)
+def get_image(full_link):
+    return full_link.split("/edit")[0] + "/export/png?id=" + get_link(full_link)
+
+
+def get_image(name):
+    return f"Images/{name}.png"
 
 
 html = container.format(
     pres="\n".join(
-        pres_template.format(name=get_name(link), image=get_image(link), num=num)
-        for num, link in enumerate(urls, start=1)
+        pres_template.format(link=get_link(full_link), image=get_image(name), name=name)
+        for name, full_link in zip(names, urls)
     )
 )
 
-with open("builed.html", "w") as f:
+with open("builed.html", "w",encoding='utf-8') as f:
     f.write(html)
