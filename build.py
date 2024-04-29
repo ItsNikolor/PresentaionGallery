@@ -6,6 +6,8 @@ urls = [
     "https://docs.google.com/presentation/d/1I_K1Z4IitdsmmM-YUOkxCr2n5Zu82ZZRle1lPwwKnbE/edit?usp=drive_link",
     "https://docs.google.com/presentation/d/1f2-OtyHUHjuIaMEIrrcUbZIwb8aK1MPYuyxv4pzR9Io/edit?usp=drive_link",
     "https://docs.google.com/presentation/d/1YpZLDW3v_mARILdOf1ZvkfqmKZMRVlLDQs9SfJM1LMA/edit?usp=drive_link",
+    'https://docs.google.com/presentation/d/1T_rifkaZ4s2iuPeEO4oIgwuvDyj2B8zscSngx3sAOEs/edit?usp=drive_link',
+
 ]
 
 names = [
@@ -16,6 +18,7 @@ names = [
     "Литературный проект ВОРИШКА",
     "Литературный проект Спиридона Вангели «Шапка Гугуцэ»",
     "Литературный проект Иона Крянгэ «Дочь старика и дочь старухи»",
+    'Литературный проект Иона Крянгэ “Коза с тремя козлятами”'
 ]
 assert len(names) == len(urls)
 
